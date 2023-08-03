@@ -1,0 +1,37 @@
+text summarisation; https://towardsdatascience.com/understand-text-summarization-and-create-your-own-summarizer-in-python-b26a9f09fc70
+import pandas as pd
+#from rake_nltk import Rake
+import nltk #in python, print(nltk.data.path) and find out venv/lib/nltk_data
+            #in which to create a corpora folder and download stopwords
+import string
+from nltk.corpus import stopwords # do this after you have manually downloaded 
+            #stopwords into corpora
+#note that corpora should be a folder in any of the 
+            #paths in python-->print(nltk.data.path) e.g. venv/lib/nltk_data
+            #corpora/stopwords should be a subfolder within that
+
+#stopwords should be downloaded from https://www.nltk.org/nltk_data/
+#and saved in venv/share/nltk_data/corpora venv/lib/nltk_data/corpora
+#in python, print(nltk.data.path) and find out venv/lib/nltk_data
+#or add it nltk.data.path.append("venv/share/nltk_data") 
+
+from nltk import word_tokenize #need the wordnet, words and omw-1.4 folders
+           #that you must download into nltk_data/corpora, as well as the 
+           #tokenize folder you should download into nltk_data/
+from nltk.tokenize import RegexpTokenizer #needs all the above folders
+from nltk.stem import WordNetLemmatizer  #needs all the above folders
+from nltk.corpus import wordnet  #needs all the above folders
+
+### about wordnet ###
+note that omw is needed, stands for open multilingual wordnet 
+it is a lexikon
+x_arr = wordnet.synsets('cat') gives everything about the word cat
+y_arr = wordnet.synset('cat.n.02') - where n is the part of speech (noun)
+        and 02 the number to the synset
+now, x_arr[0].definition() or y_arr.definition()
+    x_arr[0].lemma_names()
+    x_arr[0].hyponyms() or hypernyms() give words derived from or deriving the word cat
+
+
+### about wordnet ###
+
